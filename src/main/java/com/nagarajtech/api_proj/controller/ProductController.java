@@ -1,0 +1,27 @@
+package com.nagarajtech.api_proj.controller;
+
+import com.nagarajtech.api_proj.model.Product;
+import com.nagarajtech.api_proj.service.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api")
+public class ProductController {
+
+    @Autowired
+    ProductService productService;
+    @RequestMapping("/greet")
+    public String greet() {
+        return "hellp world";
+    }
+
+    @RequestMapping("/products")
+    public List<Product> getAllProducts(){
+        return productService.getAllProducts();
+
+    }
+}
